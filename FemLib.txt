@@ -27,7 +27,7 @@ local OrionLib = {
 	SaveCfg = false
 }
 
---Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
+--Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 666
 local Icons = {}
 
 local Success, Response = pcall(function()
@@ -408,7 +408,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 			BackgroundTransparency = 0,
 			AutomaticSize = Enum.AutomaticSize.Y
 		}), {
-			MakeElement("Stroke", Color3.fromRGB(93, 93, 93), 1.2),
+			MakeElement("Stroke", Color3.fromRGB(155, 255, 255), 1.2),
 			MakeElement("Padding", 12, 12, 12, 12),
 			SetProps(MakeElement("Image", NotificationConfig.Image), {
 				Size = UDim2.new(0, 20, 0, 20),
@@ -427,7 +427,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 				Font = Enum.Font.GothamSemibold,
 				Name = "Content",
 				AutomaticSize = Enum.AutomaticSize.Y,
-				TextColor3 = Color3.fromRGB(200, 200, 200),
+				TextColor3 = Color3.fromRGB(255, 200, 200),
 				TextWrapped = true
 			})
 		})
@@ -1105,7 +1105,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 				local DropdownList = MakeElement("List")
 
-				local DropdownContainer = AddThemeObject(SetProps(SetChildren(MakeElement("ScrollFrame", Color3.fromRGB(40, 40, 40), 4), {
+				local DropdownContainer = AddThemeObject(SetProps(SetChildren(MakeElement("ScrollFrame", Color3.fromRGB(255, 205, 255), 4), {
 					DropdownList
 				}), {
 					Parent = ItemParent,
@@ -1166,7 +1166,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 				local function AddOptions(Options)
 					for _, Option in pairs(Options) do
-						local OptionBtn = AddThemeObject(SetProps(SetChildren(MakeElement("Button", Color3.fromRGB(40, 40, 40)), {
+						local OptionBtn = AddThemeObject(SetProps(SetChildren(MakeElement("Button", Color3.fromRGB(255, 205, 255)), {
 							MakeElement("Corner", 0, 6),
 							AddThemeObject(SetProps(MakeElement("Label", Option, 13, 0.4), {
 								Position = UDim2.new(0, 8, 0, 0),
@@ -1379,7 +1379,7 @@ function OrionLib:MakeWindow(WindowConfig)
 					Size = UDim2.new(1, 0, 1, 0),
 					BackgroundTransparency = 1,
 					TextColor3 = Color3.fromRGB(255, 255, 255),
-					PlaceholderColor3 = Color3.fromRGB(210,210,210),
+					PlaceholderColor3 = Color3.fromRGB(255,210,210),
 					PlaceholderText = "Input",
 					Font = Enum.Font.GothamSemibold,
 					TextXAlignment = Enum.TextXAlignment.Center,
