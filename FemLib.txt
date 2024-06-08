@@ -1766,21 +1766,9 @@ end
 local ui = nil
 local uiVisible = nil
 
-local search_table = {}
-local ui_data = {
-	current_section = "nil"
-}
-
-local color_shader = Instance.new("ColorCorrectionEffect", workspace.CurrentCamera)
-local blur_shader = Instance.new("BlurEffect", workspace.CurrentCamera)
-
-function nurysium: init(name: string, is_draggable: boolean, parent)
-	if parent:FindFirstChild(name) then
-		parent:FindFirstChild(name):Destroy()
 	end
 
 	local Main = Instance.new("ScreenGui")
-	local uiVisible = Instance.new("TextButton")
 	local UIGradient = Instance.new("UIGradient")
 	local UICorner = Instance.new("UICorner")
 	local UIStroke = Instance.new("UIStroke")
@@ -1811,8 +1799,6 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 
 	Main.Name = name
 	Main.Parent = parent
-
-	uiVisible = Instance.new("TextButton", Main)
 
 	uiVisible.Name = "uiVisible"
 	uiVisible.Parent = Main
@@ -1864,8 +1850,6 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 	Eye.ImageTransparency = 0.450
 
 	ui = Instance.new("ScreenGui", Main)
-
-	ui.Name = 'nurysium'
 	ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	
 	local girl_Image = Instance.new("Frame")
@@ -2096,146 +2080,11 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 		tween_service:Create(Title, TweenInfo.new(1.85, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
 	end)
 
-	task.defer(function()
-		if is_draggable then
-			local function drag_script()
-				local script = Instance.new('LocalScript', Background)
-
-				local UserInputService = game:GetService("UserInputService")
-				local runService = (game:GetService("RunService"));
-
-				local gui = script.Parent
-
-				local dragging
-				local dragInput
-				local dragStart
-				local startPos
-
-				local function Lerp(a, b, m)
-					return a + (b - a) * m
-				end;
-
-				local lastMousePos
-				local lastGoalPos
-				local DRAG_SPEED = (9);
-
-				local function Update(dt)
-					if not (startPos) then return end;
-					if not (dragging) and (lastGoalPos) then
-						gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
-						return 
-					end;
-
-					local delta = (lastMousePos - UserInputService:GetMouseLocation())
-					local xGoal = (startPos.X.Offset - delta.X);
-					local yGoal = (startPos.Y.Offset - delta.Y);
-					lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
-					gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
-				end;
-
-				gui.InputBegan:Connect(function(input)
-					if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-						dragging = true
-						dragStart = input.Position
-						startPos = gui.Position
-						lastMousePos = UserInputService:GetMouseLocation()
-
-						input.Changed:Connect(function()
-							if input.UserInputState == Enum.UserInputState.End then
-								dragging = false
-							end
-						end)
-					end
-				end)
-
-				gui.InputChanged:Connect(function(input)
-					if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-						dragInput = input
-					end
-				end)
-
-				runService.Heartbeat:Connect(Update)
-			end
-
-			coroutine.wrap(drag_script)()
-		end
-	end)
-
-	task.defer(function()
-		uiVisible.TouchTap:Connect(function()
-			if not ui.Enabled then
-				nurysium:open()
-
-				task.delay(0.15, function()
-					ui.Enabled = true
-				end)
-			else
-				nurysium:close()
-
-				task.delay(1, function()
-					ui.Enabled = false
-				end)
-			end
-		end)
-
-		uiVisible.MouseButton1Up:Connect(function()
-			if not ui.Enabled then
-				nurysium:open()
-
-				task.delay(0.15, function()
-					ui.Enabled = true
-				end)
-			else
-				nurysium:close()
-
-				task.delay(1, function()
-					ui.Enabled = false
-				end)
-			end
-		end)
-
-		user_input.InputEnded:Connect(function(input, is_event)
-			if not is_event and (input.KeyCode == Enum.KeyCode.RightShift or input.KeyCode == Enum.KeyCode.Insert)  then
-
-				if not ui.Enabled then
-					nurysium:open()
-
-					task.delay(0.15, function()
-						ui.Enabled = true
-					end)
-				else
-					nurysium:close()
-
-					task.delay(1, function()
-						ui.Enabled = false
-					end)
-				end
-			end
-		end)
-	end)
-end
-
 function nurysium: create_section(name: string, imageID: number)
 	task.wait(0.1)
 
 	local Example = Instance.new("TextButton", ui.Background.Sections.real_sections)
 	local ImageLabel = Instance.new("ImageLabel")
-
-	Example.Name = name
-	Example.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Example.BackgroundTransparency = 1.000
-	Example.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Example.BorderSizePixel = 0
-	Example.Size = UDim2.new(0, 85, 0, 16)
-	Example.ZIndex = 6
-	Example.Font = Enum.Font.GothamBold
-	Example.Text = name
-	Example.TextColor3 = Color3.fromRGB(231, 231, 243)
-	Example.TextScaled = true
-	Example.TextSize = 14.000
-	Example.TextWrapped = true
-	Example.TextTransparency = 1
-	Example.TextXAlignment = Enum.TextXAlignment.Left
 
 	tween_service:Create(Example, TweenInfo.new(1.35, Enum.EasingStyle.Exponential), {TextTransparency = 0.45}):Play()
 
@@ -2409,55 +2258,5 @@ function nurysium: create_toggle(name: string, section_name: string, callback)
 	UIStroke_2.Parent = Example
 	UIStroke_2.Color = Color3.fromRGB(31, 31, 31)
 	UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-	game:GetService("RunService").Heartbeat:Connect(function()
-		if not section_name:match(ui_data.current_section) and not table.find(search_table, name)then
-			Example.Visible = false
-		else
-			Example.Visible = true
-		end
-	end)
-
-	Hitbox.MouseButton1Up:Connect(function()
-		toggled = not toggled
-
-		callback(toggled)
-
-		if toggled then
-
-			tween_service:Create(checkmark, TweenInfo.new(0.45, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-				ImageTransparency = 0.25,
-			}):Play()
-
-		else
-
-			tween_service:Create(checkmark, TweenInfo.new(0.45, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-				ImageTransparency = 1,
-			}):Play()
-
-		end
-	end)
-
-	Hitbox.TouchTap:Connect(function()
-		toggled = not toggled
-
-		callback(toggled)
-
-		if toggled then
-
-			tween_service:Create(checkmark, TweenInfo.new(0.45, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-				ImageTransparency = 0.25,
-			}):Play()
-
-		else
-
-			tween_service:Create(checkmark, TweenInfo.new(0.45, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-				ImageTransparency = 1,
-			}):Play()
-
-		end
-	end)
-
 end
-
 return OrionLib
