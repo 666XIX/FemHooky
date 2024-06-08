@@ -14,11 +14,11 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-			Main = Color3.fromRGB(25, 25, 25),
-			Second = Color3.fromRGB(32, 32, 32),
-			Stroke = Color3.fromRGB(60, 60, 60),
-			Divider = Color3.fromRGB(60, 60, 60),
-			Text = Color3.fromRGB(240, 240, 240),
+			Main = Color3.fromRGB(255, 164, 249),
+			Second = Color3.fromRGB(206, 91, 219),
+			Stroke = Color3.fromRGB(214, 170, 216),
+			Divider = Color3.fromRGB(214, 170, 216),
+			Text = Color3.fromRGB(255, 255, 255),
 			TextDark = Color3.fromRGB(150, 150, 150)
 		}
 	},
@@ -47,7 +47,7 @@ local function GetIcon(IconName)
 end   
 
 local Orion = Instance.new("ScreenGui")
-Orion.Name = "Orion"
+Orion.Name = "FemHook"
 if syn then
 	syn.protect_gui(Orion)
 	Orion.Parent = game.CoreGui
@@ -1761,188 +1761,6 @@ end
 
 function OrionLib:Destroy()
 	Orion:Destroy()
-end
-
-function nurysium: init(name: string, is_draggable: boolean, parent)
-	if parent:FindFirstChild(name) then
-		parent:FindFirstChild(name):Destroy()
-	end
-
-	local Main = Instance.new("ScreenGui")
-	local uiVisible = Instance.new("TextButton")
-	local UIGradient = Instance.new("UIGradient")
-	local UICorner = Instance.new("UICorner")
-	local UIStroke = Instance.new("UIStroke")
-	local BackgroundShadow = Instance.new("ImageLabel")
-	local Eye = Instance.new("ImageLabel")
-	local Background = Instance.new("Frame")
-	local UICorner_2 = Instance.new("UICorner")
-	local Sections = Instance.new("Frame")
-	local UICorner_3 = Instance.new("UICorner")
-	local real_sections = Instance.new("Frame")
-	local UIListLayout = Instance.new("UIListLayout")
-	local UIGradient_2 = Instance.new("UIGradient")
-	local CornerFix = Instance.new("Frame")
-	local UIGradient_3 = Instance.new("UIGradient")
-	local Title = Instance.new("TextLabel")
-	local functions_frame = Instance.new("ScrollingFrame")
-	local UIPadding = Instance.new("UIPadding")
-	local UIListLayout_2 = Instance.new("UIListLayout")
-	local Search = Instance.new("Frame")
-	local UICorner_4 = Instance.new("UICorner")
-	local ImageLabel = Instance.new("ImageLabel")
-	local Bar = Instance.new("TextBox")
-	local UIStroke_2 = Instance.new("UIStroke")
-	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-	local UIGradient_5 = Instance.new("UIGradient")
-	local UIStroke_3 = Instance.new("UIStroke")
-	local BackgroundShadow_2 = Instance.new("ImageLabel")
-
-	Main.Name = name
-	Main.Parent = parent
-
-	uiVisible = Instance.new("TextButton", Main)
-
-	uiVisible.Name = "uiVisible"
-	uiVisible.Parent = Main
-	uiVisible.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	uiVisible.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	uiVisible.BorderSizePixel = 0
-	uiVisible.Position = UDim2.new(0.0450000018, 0, 0.862999976, 0)
-	uiVisible.Size = UDim2.new(0, 50, 0, 50)
-	uiVisible.ZIndex = 15
-	uiVisible.Font = Enum.Font.GothamBold
-	uiVisible.TextColor3 = Color3.fromRGB(0, 0, 0)
-	uiVisible.TextSize = 1.000
-	uiVisible.TextTransparency = 1.000
-	uiVisible.TextWrapped = true
-	uiVisible.Visible = true
-
-	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(16, 18, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(21, 24, 33))}
-	UIGradient.Rotation = -88
-	UIGradient.Parent = uiVisible
-
-	UICorner.CornerRadius = UDim.new(0, 12)
-	UICorner.Parent = uiVisible
-
-	UIStroke.Parent = uiVisible
-	UIStroke.Color = Color3.fromRGB(85, 85, 85)
-	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-	BackgroundShadow.Name = "BackgroundShadow"
-	BackgroundShadow.Parent = uiVisible
-	BackgroundShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-	BackgroundShadow.BackgroundTransparency = 1.000
-	BackgroundShadow.Position = UDim2.new(0.499168396, 0, 0.492307693, 2)
-	BackgroundShadow.Size = UDim2.new(1.00498962, 142, 1.00923073, 142)
-	BackgroundShadow.Image = "rbxassetid://12817494724"
-	BackgroundShadow.ImageTransparency = 0.500
-	BackgroundShadow.ScaleType = Enum.ScaleType.Slice
-	BackgroundShadow.SliceCenter = Rect.new(85, 85, 427, 427)
-
-	Eye.Name = "Eye"
-	Eye.Parent = uiVisible
-	Eye.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Eye.BackgroundTransparency = 1.000
-	Eye.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Eye.BorderSizePixel = 0
-	Eye.Position = UDim2.new(0.239999995, 0, 0.239999995, 0)
-	Eye.Size = UDim2.new(0.5, 0, 0.5, 0)
-	Eye.ZIndex = 25
-	Eye.Image = "rbxassetid://17615525476"
-	Eye.ImageTransparency = 0.450
-
-	ui = Instance.new("ScreenGui", Main)
-
-	ui.Name = 'nurysium'
-	ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
-	local girl_Image = Instance.new("Frame")
-	local girl = Instance.new("ImageLabel")
-	local girl_UIGradient = Instance.new("UIGradient")
-	local girl_UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-
-	girl_Image.Name = "girl_Image"
-	girl_Image.Parent = ui
-	girl_Image.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	girl_Image.BackgroundTransparency = 1.000
-	girl_Image.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	girl_Image.BorderSizePixel = 0
-	girl_Image.Size = UDim2.new(1, 0, 1, 0)
-
-	girl.Name = "girl"
-	girl.Parent = girl_Image
-	girl.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	girl.BackgroundTransparency = 1.000
-	girl.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	girl.BorderSizePixel = 0
-	girl.Position = UDim2.new(0.730189502, 0, 0.475565195, 0)
-	girl.Size = UDim2.new(0.269810468, 0, 0.524434745, 0)
-	girl.Image = "rbxassetid://17663188480"
-
-	girl_UIGradient.Rotation = -74
-	girl_UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.17, 0.80), NumberSequenceKeypoint.new(0.34, 0.47), NumberSequenceKeypoint.new(0.43, 0.00), NumberSequenceKeypoint.new(0.50, 0.00), NumberSequenceKeypoint.new(0.68, 0.00), NumberSequenceKeypoint.new(0.90, 0.97), NumberSequenceKeypoint.new(1.00, 1.00)}
-	girl_UIGradient.Parent = girl
-	
-	girl_UIAspectRatioConstraint.Parent = girl
-	girl_UIAspectRatioConstraint.AspectRatio = 0.87
-
-	Background.Name = "Background"
-	Background.Parent = ui
-	Background.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
-	Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Background.BorderSizePixel = 0
-	Background.Position = UDim2.new(0.387321681, 0, 0.332433224, 0)
-	Background.Size = UDim2.new(0, 655, 0, 325)
-	Background.ZIndex = 5
-
-	UICorner_2.CornerRadius = UDim.new(0, 12)
-	UICorner_2.Parent = Background
-
-	UICorner_3.CornerRadius = UDim.new(0, 15)
-	UICorner_3.Parent = Sections
-
-	UIListLayout.Parent = real_sections
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Padding = UDim.new(0.0450000018, 0)
-
-	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(16, 18, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(22, 25, 34))}
-	UIGradient_2.Rotation = -113
-	UIGradient_2.Parent = Sections
-	UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(16, 18, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(22, 25, 34))}
-	UIGradient_3.Rotation = -113
-	UIGradient_3.Parent = CornerFix
-
-	Title.Name = "Title"
-	Title.Parent = Background
-	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Title.BackgroundTransparency = 1.000
-	Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Title.BorderSizePixel = 0
-	Title.Position = UDim2.new(0.0269060303, 0, 0.035999544, 0)
-	Title.Size = UDim2.new(0, 70, 0, 20)
-	Title.ZIndex = 5
-	Title.Font = Enum.Font.GothamBold
-	Title.Text = name
-	Title.TextColor3 = Color3.fromRGB(231, 231, 243)
-	Title.TextScaled = true
-	Title.TextSize = 14.000
-	Title.TextWrapped = true
-
-	UICorner_4.CornerRadius = UDim.new(0, 15)
-	UICorner_4.Parent = Search
-
-	ImageLabel.Parent = Search
-	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ImageLabel.BackgroundTransparency = 1.000
-	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	ImageLabel.BorderSizePixel = 0
-	ImageLabel.Position = UDim2.new(0.0675648972, 0, 0.244624332, 0)
-	ImageLabel.Size = UDim2.new(0, 17, 0, 17)
-	ImageLabel.ZIndex = 12
-	ImageLabel.Image = "rbxassetid://17441620727"
-	ImageLabel.ImageTransparency = 0.450
-
 end
 
 return OrionLib
