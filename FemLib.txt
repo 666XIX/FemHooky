@@ -2541,6 +2541,4 @@ function nurysium: create_toggle(name: string, section_name: string, callback)
 
 end
 
-return nurysium
-
 return OrionLib
