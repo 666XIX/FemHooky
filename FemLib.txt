@@ -1899,28 +1899,8 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 	UICorner_2.CornerRadius = UDim.new(0, 12)
 	UICorner_2.Parent = Background
 
-
-	Sections.Name = "Sections"
-	Sections.Parent = Background
-	Sections.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Sections.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Sections.BorderSizePixel = 0
-	Sections.Position = UDim2.new(-2.03027554e-07, 0, 0, 0)
-	Sections.Size = UDim2.new(0.282425195, 0, 1, 0)
-	Sections.ZIndex = 5
-
 	UICorner_3.CornerRadius = UDim.new(0, 15)
 	UICorner_3.Parent = Sections
-
-	real_sections.Name = "real_sections"
-	real_sections.Parent = Sections
-	real_sections.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	real_sections.BackgroundTransparency = 1.000
-	real_sections.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	real_sections.BorderSizePixel = 0
-	real_sections.Position = UDim2.new(0.249553874, 0, 0.170943886, 0)
-	real_sections.Size = UDim2.new(0, 107, 0, 230)
-	real_sections.ZIndex = 6
 
 	UIListLayout.Parent = real_sections
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -1929,16 +1909,6 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(16, 18, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(22, 25, 34))}
 	UIGradient_2.Rotation = -113
 	UIGradient_2.Parent = Sections
-
-	CornerFix.Name = "CornerFix"
-	CornerFix.Parent = Sections
-	CornerFix.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	CornerFix.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CornerFix.BorderSizePixel = 0
-	CornerFix.Position = UDim2.new(0.0952685028, 0, 0, 0)
-	CornerFix.Size = UDim2.new(0.904730499, 0, 1, 0)
-	CornerFix.ZIndex = 5
-
 	UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(16, 18, 24)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(22, 25, 34))}
 	UIGradient_3.Rotation = -113
 	UIGradient_3.Parent = CornerFix
@@ -1959,37 +1929,6 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 	Title.TextSize = 14.000
 	Title.TextWrapped = true
 
-	functions_frame.Name = "functions_frame"
-	functions_frame.Parent = Background
-	functions_frame.Active = true
-	functions_frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	functions_frame.BackgroundTransparency = 1.000
-	functions_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	functions_frame.BorderSizePixel = 0
-	functions_frame.Position = UDim2.new(0.31407398, 0, 0.170943886, 0)
-	functions_frame.Size = UDim2.new(0, 397, 0, 254)
-	functions_frame.ZIndex = 5
-	functions_frame.ScrollBarImageColor3 = Color3.fromRGB(223, 223, 223)
-	functions_frame.CanvasPosition = Vector2.new(0, 300)
-	functions_frame.ScrollBarThickness = 0
-
-	UIPadding.Parent = functions_frame
-	UIPadding.PaddingTop = UDim.new(0.00999999978, 0)
-
-	UIListLayout_2.Parent = functions_frame
-	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	UIListLayout_2.Padding = UDim.new(0.0149999997, 0)
-
-	Search.Name = "Search"
-	Search.Parent = Background
-	Search.BackgroundColor3 = Color3.fromRGB(27, 31, 44)
-	Search.BackgroundTransparency = 0.500
-	Search.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Search.BorderSizePixel = 0
-	Search.Position = UDim2.new(0.775426149, 0, 0.0338461548, 0)
-	Search.Size = UDim2.new(0, 120, 0, 35)
-	Search.ZIndex = 5
-
 	UICorner_4.CornerRadius = UDim.new(0, 15)
 	UICorner_4.Parent = Search
 
@@ -2003,43 +1942,6 @@ function nurysium: init(name: string, is_draggable: boolean, parent)
 	ImageLabel.ZIndex = 12
 	ImageLabel.Image = "rbxassetid://17441620727"
 	ImageLabel.ImageTransparency = 0.450
-
-	Bar.Name = "Bar"
-	Bar.Parent = Search
-	Bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Bar.BackgroundTransparency = 1.000
-	Bar.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Bar.BorderSizePixel = 0
-	Bar.Position = UDim2.new(0.275000006, 0, 0.0199957713, 0)
-	Bar.Size = UDim2.new(0, 87, 0, 34)
-	Bar.SizeConstraint = Enum.SizeConstraint.RelativeXX
-	Bar.ZIndex = 7
-	Bar.Font = Enum.Font.GothamBold
-	Bar.PlaceholderText = "Search"
-	Bar.Text = ""
-	Bar.TextColor3 = Color3.fromRGB(231, 231, 243)
-	Bar.TextSize = 14.000
-	Bar.TextTransparency = 0.450
-	Bar.TextWrapped = true
-	Bar.TextXAlignment = Enum.TextXAlignment.Left
-
-	local function bar_handler()
-		local script = Instance.new('LocalScript', Bar)
-
-		Bar:GetPropertyChangedSignal("Text"):Connect(function()
-			if Bar.Text:len() > 1 then
-				animate_elements(1.35)
-
-				for _, element in functions_frame:GetDescendants() do
-
-					if element:IsA("Frame") and element:FindFirstChild("Title") then
-
-						if string.find(element.Title.Text:lower(), Bar.Text:lower()) then
-							table.insert(search_table, element.Name)
-						else
-
-							if table.find(search_table, element.Name) then
-								table.remove(search_table, table.find(search_table, element.Name))
 
 end
 
