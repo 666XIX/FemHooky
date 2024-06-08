@@ -1792,6 +1792,7 @@ end
 	
 	girl_UIAspectRatioConstraint.Parent = girl
 	girl_UIAspectRatioConstraint.AspectRatio = 0.87
+end)
 end
 
 return OrionLib
