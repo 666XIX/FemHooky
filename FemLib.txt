@@ -1763,8 +1763,6 @@ function OrionLib:Destroy()
 	Orion:Destroy()
 end
 
-local nurysium = {}
-
 local tween_service = game:GetService("TweenService")
 local user_input = game:GetService("UserInputService")
 
